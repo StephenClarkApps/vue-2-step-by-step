@@ -16,6 +16,11 @@
 			<li v-for="name in names" v-text="name"></li>
 		</ul>
 
+
+		<input id="input" type="text">
+
+		<button id="button">Add Name</button>
+
 	</div>
 
 
@@ -23,7 +28,7 @@
 
 	<script>
 
-		new Vue({
+		var app = new Vue({
 
 			el: '#root',
 
@@ -31,9 +36,19 @@
 
 				names: ['Joe', 'Mary', 'Jane', 'Jack']
 
+			},
+
+			mounted() {
+				document.querySelector('#button').addEventListener('click', () => {
+             		let name = document.querySelector('#input');
+             		app.names.push(name.value);
+             		name.value = '';
+				});
 			}
 
-		})
+		});
+
+
 
 
 	</script>
