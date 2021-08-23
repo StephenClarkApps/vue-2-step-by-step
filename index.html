@@ -6,19 +6,17 @@
 
 	<title></title>
 
-	<style type="text/css">
-
-		.is-loading {background: red;}
-
-	</style>
-
 </head>
 
 <body>
 
 	<div id="root">
 
-		<button :class="{ 'is-loading': isLoading }" @click="toggleClass">Click Me</button>
+		<h1>
+
+			{{ reversedMessage }}
+
+		</h1>
 
 	</div>
 
@@ -29,11 +27,11 @@
 		var app = new Vue({
 			el: '#root',
 			data: {
-				isLoading: false
+				message: 'Hello World'
 			},
-			methods: {
-				toggleClass() {
-					this.isLoading = true;
+			computed: {
+				reversedMessage() {
+					return this.message.split('').reverse().join('');
 				}
 			}
 		});
