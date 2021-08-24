@@ -5,18 +5,20 @@ Vue.component('modal', {
     			<div class = "modal-background"></div>
     			<div class = "modal-content">
     				<div class="box">
-    					<p>
-    						Baby baby, why can't we just be together. Yeah e yeah e yeah.
-    					</p>
+    					<slot></slot>
     				</div>
     			</div>
 
-          <button class="modal-close"></button>
+          <button class="modal-close" @click="$emit('close')"></button>
     		</div>
   `
 
 });
 
 new Vue({
-    el: '#root'
+    el: '#root',
+
+    data: {
+      showModal: false
+    }
 })
