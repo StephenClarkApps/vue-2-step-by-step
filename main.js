@@ -18,7 +18,7 @@ Vue.component('message', {
 
         {{ title }}
 
-        <button type="button" @click="hideModal">x</button>
+        <button type="button" @click="isVisable = false">x</button>
 
       </div>
 
@@ -30,13 +30,7 @@ Vue.component('message', {
 
     </article>
 
-  `,
-
-  methods: {
-    hideModal() {
-        this.isVisable =  false;
-    }
-  }
+  `
 
 });
 
