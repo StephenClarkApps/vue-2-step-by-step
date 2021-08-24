@@ -15,13 +15,21 @@
 
 	<div id="root" class="container">
 
-			<modal v-if="showModal" @close="showModal = false">
+	<tabs>
 
-					<p>We could insert any text, or anything else really into our modal view thus.</p>
-					
-			</modal>
+		<tab name="About Us" :selected="true">
+			<h1>Here is the content for this tab.</h1>
+		</tab>
 
-			<button @click="showModal = true">Show Modal</button>
+		<tab name="About Our Culture">
+			<h1>Here is the content for this tab.</h1>
+		</tab>
+
+		<tab name="About Our Vision">
+			<h1>Here is the content for this tab.</h1>
+		</tab>
+
+	</tabs>
 
 	</div>
 

@@ -1,17 +1,46 @@
-Vue.component('modal', {
+Vue.component('tabs', {
 
   template: `
-    		<div class="modal is-active">
-    			<div class = "modal-background"></div>
-    			<div class = "modal-content">
-    				<div class="box">
-    					<slot></slot>
-    				</div>
-    			</div>
+    <div>
+      <div class="tabs">
+        <ul>
+          <li v-for="tab in tabs">
 
-          <button class="modal-close" @click="$emit('close')"></button>
-    		</div>
-  `
+          <a href="#">{{ tab.name }}</a>
+
+          </li>
+        </ul>
+      </div>
+
+      <div class="tabs-details">
+        <slot></slot>
+      </div>
+    </div>
+  `,
+
+  data() {
+
+    return { tabs: [] };
+
+  },
+
+  created() {
+    this.tabs = this.$children;
+  }
+
+});
+
+Vue.component('tab', {
+
+  template: `
+
+    <div><slot></slot></div>
+
+  `,
+
+  props: {
+    name: { required: true}
+  }
 
 });
 
